@@ -1,24 +1,43 @@
-import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
-import SyntaxHighlighter from 'react-syntax-highlighter';
+import { useMemo, useRef } from 'react';
+// import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
+// import SyntaxHighlighter from 'react-syntax-highlighter';
+import { getMDXComponent } from 'mdx-bundler/client';
 // import monokai from 'react-syntax-highlighter/dist/esm/styles/hljs/monokai';
 
-const Code = ({className, children} : { className?: any, children?: any }) => {
-	const language = className?.replace('language-', '') ?? 'javascript';
-	console.log(language);
+const Code = (props: React.ComponentPropsWithRef<'code'>) => {
+	const textRef = useRef<HTMLDivElement>(null);
+	const language = props.className?.replace('language-', '') ?? 'javascript';
 	return (
-		<SyntaxHighlighter language={language}>
-			{children}
-		</SyntaxHighlighter>
+		<code data-code-type={language && 'code-block'}>
+			{language ? (
+				<div ref={textRef}>
+					{props.children}
+				</div>
+			) : (
+				<span>{props.children}</span>
+			)}
+		</code>
 	);
 };
 
-export const MDX = (props: MDXRemoteProps) => (
-	<div className='tun-markdown'>
-		<MDXRemote {...props} components={{
-			code: Code,
-			a: ({...props}) => (
-				<a target={'_blank'} rel='noreferrer' {...props}></a>
-			),
-		}}/>
-	</div>
-);
+const MDXComponents = {
+	a: ({...props}) => (
+		<a target={'_blank'} rel='noreferrer' {...props}></a>
+	),
+	code: Code,
+};
+
+export const MDX = ({ source }: { source: string; }) => {
+	const Component = useMemo(() => getMDXComponent(source), [source]);
+	return (
+		<div className='tun-markdown'>
+			{/* <MDXRemote {...props} components={{
+				code: Code,
+				a: ({...props}) => (
+					<a target={'_blank'} rel='noreferrer' {...props}></a>
+				),
+			}}/> */}
+			<Component components={MDXComponents as any}></Component>
+		</div>
+	);
+};
