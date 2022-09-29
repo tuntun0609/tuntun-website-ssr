@@ -48,6 +48,7 @@ export const Header = ({ items }: { items: HeaderProps[] }) => {
 				onClose={onClose}
 				open={drawerOpen}
 				className={style.drawerContent}
+				title={'Tun Website'}
 			>
 				{
 					items.map(item => (
