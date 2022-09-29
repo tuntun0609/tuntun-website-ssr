@@ -16,6 +16,9 @@ export const MDX = (props: MDXRemoteProps) => (
 	<div className='tun-markdown'>
 		<MDXRemote {...props} components={{
 			code: Code,
+			a: ({...props}) => (
+				<a target={'_blank'} rel='noreferrer' {...props}></a>
+			),
 		}}/>
 	</div>
 );

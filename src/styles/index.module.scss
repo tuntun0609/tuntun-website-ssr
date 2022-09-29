@@ -6,7 +6,8 @@
 
 .main {
   width: 50em;
-  // padding: 4rem 0;
+  padding-bottom: 2em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }

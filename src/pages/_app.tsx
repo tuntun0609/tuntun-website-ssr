@@ -5,12 +5,19 @@ import { Layout } from '@/components';
 import 'antd/dist/antd.css';
 import '../styles/globals.scss';
 import '../styles/markdown.scss';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<>
+			<Head>
+				<title>tun website</title>
+				<link rel="icon" href="/tuntun.jpg" />
+			</Head>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</>
 	);
 }
 
