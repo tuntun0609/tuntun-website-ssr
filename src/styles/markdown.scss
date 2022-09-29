@@ -178,4 +178,281 @@
 	img {
 		max-width: 100%;
 	}
+
+	.title-link {
+		transition: color 0s;
+		color: #000;
+		position: relative;
+		&:hover {
+			color: #1890ff;
+		}
+		&::after {
+			display: none;
+			content: '#';
+			position: absolute;
+			left: calc(100% + 0.2em);
+		}
+		&:hover::after {
+			display: inline;
+		}
+	}
+
+	// code
+
+	pre {
+		overflow-x: auto;
+	}
+	
+	/**
+	 * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
+	 * 1. Make the element just wide enough to fit its content.
+	 * 2. Always fill the visible space in .code-highlight.
+	 */
+	
+	 pre[class*='language-'] {
+		background: var(--background);
+		border-radius: 0.5em;
+		padding: 1em;
+		margin: 0.5em 0;
+		overflow: auto;
+		height: auto;
+	}
+	
+	:not(pre) > code[class*='language-'],
+	pre[class*='language-'] {
+		background: var(--background);
+	}
+	
+	/* Inline code */
+	:not(pre) > code[class*='language-'] {
+		padding: 4px 7px;
+		border-radius: 0.3em;
+		white-space: normal;
+	}
+	
+	/* Code box limit */
+	
+	.limit-300 {
+		height: 300px !important;
+	}
+	
+	.limit-400 {
+		height: 400px !important;
+	}
+	
+	.limit-500 {
+		height: 500px !important;
+	}
+	
+	.limit-600 {
+		height: 600px !important;
+	}
+	
+	.limit-700 {
+		height: 700px !important;
+	}
+	
+	.limit-800 {
+		height: 800px !important;
+	}
+	
+	.language-css {
+		color: var(--purple);
+	}
+	
+	.token {
+		color: var(--pink);
+	}
+	
+	.language-css .token {
+		color: var(--pink);
+	}
+	
+	.token.maybe-class-name {
+		color: var(--cyan);
+	}
+	
+	.token.script {
+		color: var(--foreground);
+	}
+	
+	.token.bold {
+		font-weight: bold;
+	}
+	
+	.token.italic {
+		font-style: italic;
+	}
+	
+	.token.atrule,
+	.token.attr-name,
+	.token.attr-value {
+		color: var(--green);
+	}
+	
+	.language-css .token.atrule {
+		color: var(--purple);
+	}
+	
+	.language-html .token.attr-value,
+	.language-markup .token.attr-value {
+		color: var(--yellow);
+	}
+	
+	.token.boolean {
+		color: var(--purple);
+	}
+	
+	.token.builtin,
+	.token.class-name {
+		color: var(--cyan);
+	}
+	
+	.token.comment {
+		color: var(--comment);
+	}
+	
+	.token.constant {
+		color: var(--purple);
+	}
+	
+	.language-javascript .token.constant {
+		color: var(--orange);
+		font-style: italic;
+	}
+	
+	.token.entity {
+		color: var(--pink);
+	}
+	
+	.language-css .token.entity {
+		color: var(--green);
+	}
+	
+	.language-html .token.entity.named-entity {
+		color: var(--purple);
+	}
+	
+	.language-html .token.entity:not(.named-entity) {
+		color: var(--pink);
+	}
+	
+	.language-markup .token.entity.named-entity {
+		color: var(--purple);
+	}
+	
+	.language-markup .token.entity:not(.named-entity) {
+		color: var(--pink);
+	}
+	
+	.token.function {
+		color: var(--green);
+	}
+	
+	.language-css .token.function {
+		color: var(--cyan);
+	}
+	
+	.token.important,
+	.token.keyword {
+		color: var(--pink);
+	}
+	
+	.token.prolog {
+		color: var(--foreground);
+	}
+	
+	.token.property {
+		color: var(--orange);
+	}
+	
+	.language-css .token.property {
+		color: var(--cyan);
+	}
+	
+	.token.punctuation {
+		color: var(--foreground);
+	}
+	
+	.language-css .token.punctuation {
+		color: var(--orange);
+	}
+	
+	.language-html .token.punctuation,
+	.language-markup .token.punctuation {
+		color: var(--foreground);
+	}
+	
+	.token.selector {
+		color: var(--pink);
+	}
+	
+	.language-css .token.selector {
+		color: var(--green);
+	}
+	
+	.token.regex {
+		color: var(--red);
+	}
+	
+	.language-css .token.rule:not(.atrule) {
+		color: var(--foreground);
+	}
+	
+	.token.string {
+		color: var(--yellow);
+	}
+	
+	.token.tag {
+		color: var(--pink);
+	}
+	
+	.token.url {
+		color: var(--cyan);
+	}
+	
+	.language-css .token.url {
+		color: var(--orange);
+	}
+	
+	.token.variable {
+		color: var(--comment);
+	}
+	
+	.token.number {
+		color: rgba(189, 147, 249, 1);
+	}
+	
+	.token.operator {
+		color: rgba(139, 233, 253, 1);
+	}
+	
+	.token.char {
+		color: rgba(255, 135, 157, 1);
+	}
+	
+	.token.symbol {
+		color: rgba(255, 184, 108, 1);
+	}
+	
+	.token.deleted {
+		color: #e2777a;
+	}
+	
+	.token.namespace {
+		color: #e2777a;
+	}
+	
+	.token.dom {
+		color: var(--foreground);
+	}
+	
+	.code-line.highlight-line {
+		background-color: rgba(139, 233, 253, 0.14);
+		border-left: 2px solid rgb(139, 233, 253);
+	}
+	
+	.code-line {
+		display: block;
+	}
 }

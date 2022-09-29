@@ -22,7 +22,9 @@ const Code = (props: React.ComponentPropsWithRef<'code'>) => {
 
 const MDXComponents = {
 	a: ({...props}) => (
-		<a target={'_blank'} rel='noreferrer' {...props}></a>
+		props.className && props.className.indexOf('title-link') !== -1
+			? <a {...props}></a>
+			: <a target={'_blank'} rel='noreferrer' {...props}></a>
 	),
 	code: Code,
 };

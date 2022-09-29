@@ -45,7 +45,12 @@ export const getMdData = async (mdPath: string): Promise<MdData> => {
 				...(options.rehypePlugins ?? []),
 				rehypeSlug,
 				rehypePrism,
-				rehypeAutolinkHeadings,
+				[rehypeAutolinkHeadings, {
+					behavior: 'wrap',
+					properties: {
+						className: ['title-link'],
+					},
+				}],
 			];
 			return options;
 		},
