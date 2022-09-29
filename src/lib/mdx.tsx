@@ -12,10 +12,12 @@ export const MD_PATH = path.join(process.cwd(), 'src/md');
 export const BLOG_PATH = path.join(process.cwd(), 'src/md/blog');
 
 // 通过路径获取该路径下所有mdx文件的文件名
-export const postFilePaths = (filePath: string) => fs
-	.readdirSync(filePath)
-	.filter(path => /\.mdx?$/.test(path))
-	.map(item => item.replace('.mdx', ''));
+export const postFilePaths = (filePath: string) => fs.existsSync(filePath)
+	? fs
+		.readdirSync(filePath)
+		.filter(path => /\.mdx?$/.test(path))
+		.map(item => item.replace('.mdx', ''))
+	: [];
 
 // blog文件夹下所有mdx文件文件名
 export const blogFilePath = postFilePaths(BLOG_PATH);
