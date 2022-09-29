@@ -11,11 +11,9 @@ export const postFilePaths = fs
 
 export const getMdData = async (mdPath: string) => {
 	const filePath = path.join(MD_PATH, `${mdPath}.mdx`);
-	console.log(filePath);
 	const source = fs.readFileSync(filePath);
 
 	const { content, data } = matter(source);
-
 	const mdxSource = await serialize(content, {
 		mdxOptions: {
 			remarkPlugins: [],
