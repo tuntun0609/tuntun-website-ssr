@@ -9,6 +9,7 @@
 		width: 49%;
 		display: flex;
 		justify-content: center;
+		margin-bottom: 0.8em;
 		img {
 			height: 100%;
 		}
@@ -17,7 +18,6 @@
 		.repo-list-item {
 			width: 100%;
 			justify-content: flex-start;
-			margin-bottom: 0.5em;
 		}
 	}
 	a {
