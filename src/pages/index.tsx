@@ -25,7 +25,7 @@ const Home = ({ source }: { source: string }) => (
 				<div style={{
 					fontSize: '48px',
 					fontWeight: 'bold',
-					margin: '0.6em 0',
+					margin: '0.4em 0',
 				}}>Welcome!</div>
 				<TypedWriter
 					style={{
