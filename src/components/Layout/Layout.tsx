@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 
-import { Header, HeaderProps } from '@/components/Header/Header';
+import { Header, HeaderProps, BgRibbon } from '@/components';
 import { GithubOutlined, YoutubeOutlined, YuqueOutlined } from '@ant-design/icons';
 
 type Props = {
@@ -67,6 +67,7 @@ export const Layout = ({ children }: Props) => {
 		<>
 			<Header items={HeaderItems}></Header>
 			{ children }
+			<BgRibbon globalAlpha={0.2} ribbonWidth={75}></BgRibbon>
 		</>
 	);
 };
